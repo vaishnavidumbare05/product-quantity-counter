@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Decrement Counter</title>
+    <style>
+        .heading{
+            text-align: center;
+            color:darkmagenta;
+        }
+        .product-card{
+           
+            width:380px;
+            margin:50px auto;
+            border:1px solid black;
+            border-radius: 10px;
+        }
+        .product-img{
+            height:300px;
+            width:300px;
+            display:block;
+            margin:20px auto;
+        }
+        .btn{
+            display: block;
+            margin:20px auto;
+            padding:15px 15px;
+            font-size: medium;
+            background-color: rgb(42, 122, 196);
+            color:white;
+            border:none;
+            border-radius: 15px;
+            cursor:pointer;
+
+        }
+        .quantity-btn-container{
+            display:flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+
+        .btn-quantity{
+            height:40px;
+            width:40px;
+            cursor:pointer;
+        }
+        .btn:hover{
+            background-color: rgb(15, 63, 108);
+        }
+
+        </style>
+</head>
+<body>
+    <h1 class="heading">Reflex play-Smarth Watch</h1>
+    <div class="product-card">
+        <img src="img1.jpg" class="product-img">
+    <div class="quantity-btn-container">
+        <img src="minus.png" class="btn-quantity" onclick="handleQuantityChange('dec')">
+        <h2 id="quantity-text"> 1</h2>
+        <img src="plus.png" class="btn-quantity" onclick="handleQuantityChange('inc')">
+    </div>
+         <button class="btn">Buy Now</button>
+     </div>
+     
+     <script>
+          
+      function handleQuantityChange(action){
+        const quantityElement=document.getElementById("quantity-text")
+        let quantity=parseInt(quantityElement.innerText)
+        if(quantity==1 && action=='dec'){
+            alert('Quantity cannot be less than 1')
+             return
+        }else if(quantity==5 && action=='inc')
+         {
+            alert('Quantity cannnot be more than 5')
+            return
+         }
+
+            //     if(action == 'inc'){
+            //  quantityElement.innerText= ++quantity;
+            //     }
+            //     else{
+            //         quantityElement.innerText= --quantity;
+
+            //     }
+              
+           quantityElement.innerText= action=='inc'? ++quantity : --quantity
+         }
+    </script>
+
+</body>
+</html>
